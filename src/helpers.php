@@ -1,6 +1,5 @@
 <?php
 
-use Tightenco\Collect\Support\Debug\Dumper;
 use Illuminate\Support\Arr;
 
 if (! function_exists('dd_if')) {
@@ -249,6 +248,7 @@ if (! function_exists('get_object_vars_recursive')) {
     }
 }
 
+
 if (! function_exists('_get_object_vars_recursive')) {
     /**
      * @param $object
@@ -262,13 +262,13 @@ if (! function_exists('_get_object_vars_recursive')) {
             if (is_object($value)) {
                 $result[$var] = _get_object_vars_recursive($value); // @TODO
                 continue;
-            } 
-            
+            }
+
             if(! is_array($value)) {
                 $result[$var] = $value;
                 continue;
             }
-            
+
             foreach ($value as $_value) {
                 if (is_object($_value)) {
                     $result[$var][] = _get_object_vars_recursive($_value); // @TODO
@@ -277,7 +277,7 @@ if (! function_exists('_get_object_vars_recursive')) {
                 }
             }
         }
-        
+
         return $result;
     }
 }
